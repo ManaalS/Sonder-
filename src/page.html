@@ -22,6 +22,10 @@
 
 <div id="h2">
   <fieldset>
+    Name: <input style= 'width: 60%;' class="thoughtInput" id="name" type="text" width="80" height= "40" name="Name" value="">
+
+  </fieldset>
+  <fieldset>
     Thought 1: <input class="thoughtInput" id="thought1" placeholder="Enter a thought!" type="text" width="80" height= "40" name="Thought1" value="">
     <div class="toggle toggle--like">
         <input type="checkbox" id="toggle--like1" name="Thought1" class="toggle--checkbox">
@@ -66,6 +70,7 @@
 </div>
 </body>
 <script>
+  let name = document.getElementById('name');
   let thought1 = document.getElementById('thought1');
   let thought2 = document.getElementById('thought2');
   let thought3 = document.getElementById('thought3');
@@ -76,6 +81,7 @@
   let t4 = document.getElementById('toggle--like4');
 
   function myFunction() {
+    console.log(name.value);
     console.log(thought1.value);
     console.log(thought2.value);
     console.log(thought3.value);
