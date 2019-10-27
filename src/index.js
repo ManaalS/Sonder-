@@ -17,8 +17,7 @@ const dbRoute = "mongodb+srv://ruqiam:flower510@cluster0-orxel.gcp.mongodb.net/j
 // connects our back end code with the database
 mongoose.connect(
  dbRoute,
- { useNewUrlParser: true
- , useUnifiedTopology: true  }
+ { useNewUrlParser: true  }
 );
 let db = mongoose.connection;
 db.once("open", () => console.log("connected to the database"));
@@ -69,23 +68,29 @@ router.post("/logJournal", (req, res) => {
  // });
 });
 
-router.get("/getJournals", (req, res) => {
+app.get("/api/getJournals", (req, res) => {
  const person = req.query.name;
  JournalData.find( {name: person }, function(err,obj) {
    if (err) {
      console.log("Error ", err);
      return res.send(err);
    }
-   return res.json({ success: true, data: obj });
+   return res.json({ success: true, journals: obj });
  });
 });
 
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname + '/page.html'));
+  res.sendFile(__dirname + '/index.html');
 })
 
+app.get('/style.css', function (req, res) {
+  res.sendFile(path.join(__dirname + '/style.css'));
+})
+app.get('/yuriy-kovalev-nN1HSDtKdlw-unsplash.jpg', function (req, res) {
+  res.sendFile(path.join(__dirname + '/yuriy-kovalev-nN1HSDtKdlw-unsplash.jpg'));
+})
 app.use("/api", router);
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))

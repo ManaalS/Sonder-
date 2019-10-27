@@ -2,7 +2,7 @@
 
   <head>
     <title> Claricity </title>
-
+    <script src= "https://unpkg.com/axios/dist/axios.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Slabo+27px|ZCOOL+XiaoWei&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
@@ -62,6 +62,9 @@
   <br>
   <button onclick='myFunction();'>Process your thoughts!</button>
 
+<p id='analysis'>
+  Click to analyze your thoughts!
+</p>
 
   </div>
   <footer style="text-align:center;">
@@ -79,17 +82,55 @@
   let t2 = document.getElementById('toggle--like2');
   let t3 = document.getElementById('toggle--like3');
   let t4 = document.getElementById('toggle--like4');
+  let analysis = document.getElementById('analysis')
+  async function myFunction() {
+    let toBePosted = {
+      name: name.value,
+      thought1: thought1.value,
+      thought2: thought2.value,
+      thought3: thought3.value,
+      thought4: thought4.value,
+      t1: t1.checked,
+      t2: t2.checked,
+      t3: t3.checked,
+      t4: t4.checked,
+    }
 
-  function myFunction() {
-    console.log(name.value);
-    console.log(thought1.value);
-    console.log(thought2.value);
-    console.log(thought3.value);
-    console.log(thought4.value);
-    console.log(t1.checked);
-    console.log(t2.checked);
-    console.log(t3.checked);
-    console.log(t4.checked);
-  }
+    let res = await axios.post("http://localhost:3000/api/logJournal", toBePosted)
+
+    let res2 = await axios.get("http://localhost:3000/api/getJournals?name=" + name.value)
+    const {data} = res2
+    const {journals} = data
+
+    let counter = 0
+    for (let i=0; i<journals.length; i++){
+      if (journals[i].t1){
+        counter ++
+      }
+      if (journals[i].t2){
+        counter ++
+      }
+      if (journals[i].t3){
+        counter ++
+      }
+      if (journals[i].t1){
+        counter ++
+      }
+    }
+
+    let percentage = Math.round((counter *100)/ (journals.length * 4))
+    analysis.innerHTML = 'Cumulatively, your thoughts are '+ percentage + '% positive and ' + (100-percentage) + '% negative.'
+    }
+
 </script>
+<p>
+  If you're experiencing more negative thoughts than positive thoughts, ask yourself:
+</br>
+  Are there any other ways that I could look at this situation?
+  </br>
+
+  Am I jumping to negative conclusions?
+  </br>
+  What is the best thing that could happen?
+</p>
 </html>
