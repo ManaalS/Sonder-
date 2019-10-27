@@ -1,26 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
   <head>
-    <title>Better news</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Sonder </title>
+
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px|ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
-  <body>
-    <h1>Better News!</h1>
 
-    <p>
-      I'm your cool new webpage. Made with <a href="https://glitch.com">Glitch</a>!
-    </p>
+<body>
 
-    <input id = "searchBar">
-     <button id = "search">
-       Search for Topic!
-    </button>
+    <h1> Sonder </h1>
 
-    <!-- include the Glitch button to show what the webpage is about and
-          to make it easier for folks to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
-    <script src="https://button.glitch.me/button.js"></script>
-  </body>
+<div id="container">
+  <p> Hello and welcome! Here you will be able to analyze your thoughts for today and check up on your state of mind. Simply record your thoughts in the following text boxes and select how you feel about them.  </p>
+
+<div id="h2">
+<form action="/action_page.php">
+  <fieldset>
+    Thought 1: <input class="thoughtInput" type="text" width="80" height= "40" name="Thought1" value="">
+    <div class="toggle toggle--like">
+        <input type="checkbox" id="toggle--like1" name="Thought1" class="toggle--checkbox">
+        <label class="toggle--btn" for="toggle--like1"><span class="toggle--feature"></span></label>
+    </div>
+  </fieldset>
+  <br>
+
+  <fieldset>
+    Thought 2: <input class="thoughtInput" type="text" name="Thought2" value="">
+    <div class="toggle toggle--like">
+        <input type="checkbox" id="toggle--like2" name="Thought2" class="toggle--checkbox">
+        <label class="toggle--btn" for="toggle--like2"><span class="toggle--feature"></span></label>
+    </div>
+  </fieldset>
+  <br>
+
+  <fieldset>
+    Thought 3: <input class="thoughtInput" type="text" name="Thought3" value="">
+    <div class="toggle toggle--like">
+        <input type="checkbox" id="toggle--like3" name="Thought3" class="toggle--checkbox">
+        <label class="toggle--btn" for="toggle--like3"><span class="toggle--feature"></span></label>
+    </div>
+  </fieldset>
+  <br>
+
+  <fieldset>
+    Thought 4: <input class="thoughtInput" type="text" name="Thought4" value="">
+    <div class="toggle toggle--like">
+        <input type="checkbox" id="toggle--like4" name="Thought4" class="toggle--checkbox">
+        <label class="toggle--btn" for="toggle--like4"><span class="toggle--feature"></span></label>
+    </div>
+  </fieldset>
+  <br>
+
+  <fieldset>
+    Thought 5: <input class="thoughtInput" type="text" name="Thought5" value="">
+    <div class="toggle toggle--like">
+        <input type="checkbox" id="toggle--like5" name="Thought5" class="toggle--checkbox">
+        <label class="toggle--btn" for="toggle--like5"><span class="toggle--feature"></span></label>
+    </div>
+  </fieldset>
+  <br>
+  <input type="submit" value="Process your thoughts!">
+
+
+  </div>
+  <footer style="text-align:center;">
+    Built with ♡ by the <a href="aboutpage.html"> team behind Sonder </a>
+  </footer>
+</div>
+</form
+</body>
+
 </html>
