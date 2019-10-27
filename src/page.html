@@ -1,7 +1,7 @@
 <html>
 
   <head>
-    <title> Sonder </title>
+    <title> Claricity </title>
 
     <link href="https://fonts.googleapis.com/css?family=Slabo+27px|ZCOOL+XiaoWei&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -9,24 +9,28 @@
 
 <body>
 
-    <h1> Sonder </h1>
+    <h1> Claricity </h1>
 
 <div id="container">
-  <p> Hello and welcome! Here you will be able to analyze your thoughts for today and check up on your state of mind. Simply record your thoughts in the following text boxes and select how you feel about them.  </p>
+  <p> Is your self-talk healthy?
+    <br/>
+    <br/>
+    Write down up to four things that are on your mind, select how each thought makes you feel, and allow us to help you eliminate negative thoughts.
+<br/>
+<br/>
+    We'll help you analyze and address your thought processes while tracking your progress over time. </p>
 
 <div id="h2">
-<form action="/action_page.php">
   <fieldset>
-    Thought 1: <input class="thoughtInput" type="text" width="80" height= "40" name="Thought1" value="">
+    Thought 1: <input class="thoughtInput" id="thought1" placeholder="Enter a thought!" type="text" width="80" height= "40" name="Thought1" value="">
     <div class="toggle toggle--like">
         <input type="checkbox" id="toggle--like1" name="Thought1" class="toggle--checkbox">
         <label class="toggle--btn" for="toggle--like1"><span class="toggle--feature"></span></label>
     </div>
   </fieldset>
   <br>
-
   <fieldset>
-    Thought 2: <input class="thoughtInput" type="text" name="Thought2" value="">
+    Thought 2: <input class="thoughtInput" id="thought2" placeholder="Enter a thought!" type="text" name="Thought2" value="">
     <div class="toggle toggle--like">
         <input type="checkbox" id="toggle--like2" name="Thought2" class="toggle--checkbox">
         <label class="toggle--btn" for="toggle--like2"><span class="toggle--feature"></span></label>
@@ -35,7 +39,7 @@
   <br>
 
   <fieldset>
-    Thought 3: <input class="thoughtInput" type="text" name="Thought3" value="">
+    Thought 3: <input class="thoughtInput" id="thought3" placeholder="Enter a thought!" type="text" name="Thought3" value="">
     <div class="toggle toggle--like">
         <input type="checkbox" id="toggle--like3" name="Thought3" class="toggle--checkbox">
         <label class="toggle--btn" for="toggle--like3"><span class="toggle--feature"></span></label>
@@ -44,7 +48,7 @@
   <br>
 
   <fieldset>
-    Thought 4: <input class="thoughtInput" type="text" name="Thought4" value="">
+    Thought 4: <input class="thoughtInput" id="thought4" placeholder="Enter a thought!" type="text" name="Thought4" value="">
     <div class="toggle toggle--like">
         <input type="checkbox" id="toggle--like4" name="Thought4" class="toggle--checkbox">
         <label class="toggle--btn" for="toggle--like4"><span class="toggle--feature"></span></label>
@@ -52,15 +56,34 @@
   </fieldset>
 
   <br>
-  <input type="submit" value="Process your thoughts!">
+  <button onclick='myFunction();'>Process your thoughts!</button>
 
 
   </div>
   <footer style="text-align:center;">
-    Built with ♡ by the <a href="aboutpage.html"> team behind Sonder </a>
+    Built with ♡ by the <a href="aboutpage.html"> team behind Claricity </a>
   </footer>
 </div>
-</form
 </body>
+<script>
+  let thought1 = document.getElementById('thought1');
+  let thought2 = document.getElementById('thought2');
+  let thought3 = document.getElementById('thought3');
+  let thought4 = document.getElementById('thought4');
+  let t1 = document.getElementById('toggle--like1');
+  let t2 = document.getElementById('toggle--like2');
+  let t3 = document.getElementById('toggle--like3');
+  let t4 = document.getElementById('toggle--like4');
 
+  function myFunction() {
+    console.log(thought1.value);
+    console.log(thought2.value);
+    console.log(thought3.value);
+    console.log(thought4.value);
+    console.log(t1.checked);
+    console.log(t2.checked);
+    console.log(t3.checked);
+    console.log(t4.checked);
+  }
+</script>
 </html>
